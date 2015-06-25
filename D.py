@@ -22,30 +22,21 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_pag_D(object):
-    def setupUi(self, pag_D):
-        pag_D.setObjectName(_fromUtf8("pag_D"))
-        pag_D.resize(400, 300)
-        self.meus_ativos = QtGui.QPushButton(pag_D)
-        self.meus_ativos.setGeometry(QtCore.QRect(50, 80, 251, 31))
-        self.meus_ativos.setObjectName(_fromUtf8("meus_ativos"))
-        self.meus_passivos = QtGui.QPushButton(pag_D)
-        self.meus_passivos.setGeometry(QtCore.QRect(50, 130, 251, 31))
-        self.meus_passivos.setObjectName(_fromUtf8("meus_passivos"))
-        self.dica_do_dia = QtGui.QPushButton(pag_D)
-        self.dica_do_dia.setGeometry(QtCore.QRect(50, 180, 251, 31))
-        self.dica_do_dia.setObjectName(_fromUtf8("dica_do_dia"))
-        self.sair = QtGui.QPushButton(pag_D)
-        self.sair.setGeometry(QtCore.QRect(50, 260, 75, 23))
-        self.sair.setObjectName(_fromUtf8("sair"))
+class Ui_pag_D(QtGui.QWidget):
+    def __init__(self):
+        super(Ui_pag_D,self).__init__()
+        self.ativos = QtGui.QPushButton('ATIVOS')
+        self.passivos = QtGui.QPushButton('PASSIVOS')
+        self.dicas = QtGui.QPushButton('DICA DO DIA')
+        self.sair = QtGui.QPushButton('SAIR')
+        layout = QGridLayout(self)
+        layout.addWidget(self.ativos, 3,0,1,1)
+        layout.addWidget(self.passivos, 3,1,1,1)
+        layout.addWidget(self.dicas, 3,2,1,1)
+        layout.addWidget(self.sair, 3,3,1,1)
 
-        self.retranslateUi(pag_D)
-        QtCore.QMetaObject.connectSlotsByName(pag_D)
-
-    def retranslateUi(self, pag_D):
-        pag_D.setWindowTitle(_translate("pag_D", "Dialog", None))
-        self.meus_ativos.setText(_translate("pag_D", "MEUS ATIVOS", None))
-        self.meus_passivos.setText(_translate("pag_D", "MEUS PASSIVOS", None))
-        self.dica_do_dia.setText(_translate("pag_D", "DICA DO DIA", None))
-        self.sair.setText(_translate("pag_D", "SAIR", None))
-
+if __name__ == '__main__':
+    app = QtGui.QApplication(sys.argv)
+    win = Ui_pag_D()
+    win.show()
+    app.exec_()

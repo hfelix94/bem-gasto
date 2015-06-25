@@ -23,27 +23,6 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_pag(object):
-    def setupUi(self, pag_A):
-        pag_A.setObjectName(_fromUtf8("pag_A"))
-        pag_A.resize(400, 300)
-        self.cadastrar = QtGui.QPushButton(pag_A)
-        self.cadastrar.setGeometry(QtCore.QRect(140, 230, 111, 41))
-        self.cadastrar.setObjectName(_fromUtf8("cadastrar"))
-        self.entrar = QtGui.QPushButton(pag_A)
-        self.entrar.setGeometry(QtCore.QRect(140, 170, 111, 41))
-        self.entrar.setObjectName(_fromUtf8("entrar"))
-
-        self.retranslateUi(pag_A)
-        QtCore.QMetaObject.connectSlotsByName(pag_A)
-
-    def retranslateUi(self, pag_A):
-        pag_A.setWindowTitle(_translate("pag_A", "Dialog", None))
-        self.cadastrar.setText(_translate("pag_A", "CADASTRAR", None))
-        self.entrar.setText(_translate("pag_A", "ENTRAR", None))
-
-
-
 import sys
 from PyQt4.QtGui import *
 # para aproveitar a tela

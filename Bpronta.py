@@ -6,48 +6,52 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
-from PyQt4 import QtGui,QtCore
+from PyQt4 import QtCore, QtGui
+from C import *
+
+
+
+
 import sys
+from PyQt4.QtGui import *
+# para aproveitar a tela
+class  Ui_pag_B(QWidget):
 
-try:
-    _fromUtf8 = QtCore.QString.fromUtf8
-except AttributeError:
-    def _fromUtf8(s):
-        return s
-
-try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
-
-class Ui_pag_B(QtGui.QWidget):
     def __init__(self):
-        super(Ui_pag_B,self).__init__()
-        self.nome = QtGui.QLabel('Nome')
-        self.email = QtGui.QLabel('Email')
-        self.senha = QtGui.QLabel('Senha')
-        self.cadastrar = QtGui.QPushButton('Cadastrar')
-        self.cancelarSO = QtGui.QPushButton('Cancelar')
-        self.nome_2 = QtGui.QLineEdit()
-        self.email_2 = QtGui.QLineEdit()
-        self.senha_2 = QtGui.QLineEdit()
-        layout = QGridLayout(self)
-        layout.addWidget(self.nome, 0,0,1,1)
+        super( Ui_pag_B, self).__init__()
+        self.entrar = QPushButton('Entrar')
+        self.entrar.setGeometry(QtCore.QRect(140, 170, 111, 41))
+        self.entrar.setObjectName("entrar")
+        self.cadastrar = QPushButton('Cadastrar')
+        self.cadastrar.setObjectName("cadastrar")
+        self.cadastrar.clicked.connect(self.teste)
+        self.pag_B = QWidget()
         layout.addWidget(self.email, 1,0,1,1)
         layout.addWidget(self.senha, 2,0,1,1)
         layout.addWidget(self.cadastrar, 3,1,1,1)
         layout.addWidget(self.cancelarSO, 3,0,1,1)
-        layout.addWidget(self.nome_2, 0,1,1,1)
         layout.addWidget(self.email_2, 1,1,1,1)
         layout.addWidget(self.senha_2, 2,1,1,1)
 
+    def teste(self):
+        self.pag_B.hide()
+        self.pag_C.show()
+
+
+
+
+
+
+
+
+
+
+
+# acabou
+
+
 if __name__ == '__main__':
-    app = QtGui.QApplication(sys.argv)
-    win = Ui_pag_B()
-    win.show()
-    app.exec_()
+    app = QApplication(sys.argv)
+    ex = Ui_pag_B()
+    ex.show()
+    sys.exit(app.exec_())
